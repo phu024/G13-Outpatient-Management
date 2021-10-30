@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/phu024/sa-64/entity"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 	"golang.org/x/crypto/bcrypt"
 )
 

@@ -2,7 +2,7 @@ package controller
 
 import (
 	"net/http"
-	"github.com/phu024/sa-64/entity"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 	"github.com/gin-gonic/gin"
 )
 
