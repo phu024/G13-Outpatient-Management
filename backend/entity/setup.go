@@ -41,28 +41,20 @@ func SetupDatabase() {
 
 	db = database
 
-	//set password
-	passwordRecorder, err := bcrypt.GenerateFromPassword([]byte("1234"), 14)
-	passwordn01, err := bcrypt.GenerateFromPassword([]byte("11223344"), 14)
-	passwordn02, err := bcrypt.GenerateFromPassword([]byte("44332211"), 14)
-	passwordDoctorWichai, err := bcrypt.GenerateFromPassword([]byte("pk007"), 14)
-	passwordDoctorPhumchai, err := bcrypt.GenerateFromPassword([]byte("6226404"), 14)
-	passwordDoctorAnan, err := bcrypt.GenerateFromPassword([]byte("taengmo"), 14)
-	password, err := bcrypt.GenerateFromPassword([]byte("1234"), 14)
-	password2, err := bcrypt.GenerateFromPassword([]byte("2020"), 14)
+	password, err := bcrypt.GenerateFromPassword([]byte("123456"), 14)
 
 	//ภูวดล
 	db.Model(&Recorder{}).Create(&Recorder{
 		FirstName: "ภูวดล",
 		LastName:  "เดชารัมย์",
 		Email:     "phu@email.com",
-		Password:  string(passwordRecorder),
+		Password:  string(password),
 	})
 	db.Model(&Recorder{}).Create(&Recorder{
 		FirstName: "แพรวา",
 		LastName:  "เดชารัมย์",
 		Email:     "phrae@email.com",
-		Password:  string(passwordRecorder),
+		Password:  string(password),
 	})
 	var phuwadon Recorder
 	var phrae Recorder
@@ -124,19 +116,19 @@ func SetupDatabase() {
 	Phumchai := Doctor{
 		Name:     "นพ.ภูมิชัย ศิริพันธ์พรชนะ",
 		Email:    "phumchai@gmail.com",
-		Password: string(passwordDoctorPhumchai),
+		Password: string(password),
 	}
 	db.Model(&Doctor{}).Create(&Phumchai)
 	Wichai := Doctor{
 		Name:     "นพ.วิชัย ศรีสุรักษ์",
 		Email:    "wichai@gmail.com",
-		Password: string(passwordDoctorWichai),
+		Password: string(password),
 	}
 	db.Model(&Doctor{}).Create(&Wichai)
 	Anan := Doctor{
 		Name:     "พญ.อนันต์ กระเซ็น",
 		Email:    "anan@gmail.com",
-		Password: string(passwordDoctorAnan),
+		Password: string(password),
 	}
 	db.Model(&Doctor{}).Create(&Anan)
 
@@ -197,13 +189,13 @@ func SetupDatabase() {
 		Firstname: "Wimonrat",
 		Lastname:  "Kongdee",
 		Email:     "wimonrat@gmail.com",
-		Password:  string(passwordn01),
+		Password:  string(password),
 	})
 	db.Model(&Nurse{}).Create(&Nurse{
 		Firstname: "Nipat",
 		Lastname:  "Paina",
 		Email:     "nipat@hotmail.com",
-		Password:  string(passwordn02),
+		Password:  string(password),
 	})
 
 	var wimonrat Nurse
@@ -223,7 +215,7 @@ func SetupDatabase() {
 	Cra3 := Cashier{
 		Name:     "ภูมิชัย สนสวย",
 		Email:    "phumchai123@gmail.com",
-		Password: string(password2),
+		Password: string(password),
 	}
 	db.Model(&Cashier{}).Create(&Cra3)
 
