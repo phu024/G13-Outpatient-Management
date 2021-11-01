@@ -3,9 +3,9 @@ package controller
 import (
 	"net/http"
 
-	"github.com/Chattapat/Pharmacy/entity"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 
-	"github.com/Chattapat/Pharmacy/service"
+	"github.com/phu024/G13-Outpatient-Management/service"
 
 	"github.com/gin-gonic/gin"
 
@@ -13,19 +13,9 @@ import (
 )
 
 // LoginPayload login body
-type LoginPayload struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
-}
-
-// LoginResponse token response
-type LoginResponse struct {
-	Token string `json:"token"`
-	ID    uint   `json:"id"`
-}
 
 // POST /login
-func Login(c *gin.Context) {
+func LoginPharmacist(c *gin.Context) {
 	var payload LoginPayload
 	var user entity.Pharmacist
 

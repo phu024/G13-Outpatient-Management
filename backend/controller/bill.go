@@ -3,10 +3,8 @@ package controller
 import (
 	"net/http"
 
-	
-
-	"github.com/pechkr2020/sa-project/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 )
 
 // POST /bills
@@ -18,8 +16,6 @@ func CreateBill(c *gin.Context) {
 	var bill entity.Bill
 	var check_exam entity.Bill
 
-	
-	
 	// ผลลัพธ์ที่ได้จากขั้นตอนที่ 8 จะถูก bind เข้าตัวแปร bill
 	if err := c.ShouldBindJSON(&bill); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -49,15 +45,13 @@ func CreateBill(c *gin.Context) {
 		return
 	}
 
-	
-		
 	// 12: สร้าง Bill
 	bl := entity.Bill{
-		Examination: examination,             // โยงความสัมพันธ์กับ Entity Examination
-		PatientRight:       patientright,                  // โยงความสัมพันธ์กับ Entity PatientRight
-		Cashier:    cashier,               // โยงความสัมพันธ์กับ Entity Crashier
-		BillTime: bill.BillTime, // ตั้งค่าฟิลด์ BillTime
-		Total:(examination.Treatment_cost+examination.Medicine_cost)-patientright.Discount,//ตั้งค่าฟิลด์ Total
+		Examination:  examination,                                                                    // โยงความสัมพันธ์กับ Entity Examination
+		PatientRight: patientright,                                                                   // โยงความสัมพันธ์กับ Entity PatientRight
+		Cashier:      cashier,                                                                        // โยงความสัมพันธ์กับ Entity Crashier
+		BillTime:     bill.BillTime,                                                                  // ตั้งค่าฟิลด์ BillTime
+		Total:        (examination.TreatmentCost + examination.MedicineCost) - patientright.Discount, //ตั้งค่าฟิลด์ Total
 	}
 
 	// 13: บันทึก

@@ -3,26 +3,14 @@ package controller
 import (
 	"net/http"
 
+	"github.com/gin-gonic/gin"
 	"github.com/phu024/G13-Outpatient-Management/entity"
 	"github.com/phu024/G13-Outpatient-Management/service"
-	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 )
 
-// LoginPayload login body
-type LoginPayload struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
-}
-
-// LoginResponse token response
-type LoginResponse struct {
-	Token string `json:"token"`
-	ID    uint   `json:"id"`
-}
-
 // POST /login
-func Login(c *gin.Context) {
+func LoginNurse(c *gin.Context) {
 	var payload LoginPayload
 	var nurse entity.Nurse
 

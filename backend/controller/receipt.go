@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/SilpasertS/sa-64-example/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 )
 
 // POST /receipts
@@ -40,9 +40,9 @@ func CreateReceipt(c *gin.Context) {
 	}
 	// 12: สร้าง Receipt
 	rc := entity.Receipt{
-		Cashier:  cashier,             // โยงความสัมพันธ์กับ Entity Cashier
-		Bill:       bill,                  // โยงความสัมพันธ์กับ Entity Bill
-		Method:    method,               // โยงความสัมพันธ์กับ Entity Method
+		Cashier:   cashier,           // โยงความสัมพันธ์กับ Entity Cashier
+		Bill:      bill,              // โยงความสัมพันธ์กับ Entity Bill
+		Method:    method,            // โยงความสัมพันธ์กับ Entity Method
 		SavedTime: receipt.SavedTime, // ตั้งค่าฟิลด์ savedTime
 	}
 

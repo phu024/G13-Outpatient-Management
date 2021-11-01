@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/Chattapat/Pharmacy/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 )
 
 // GET /Medicine

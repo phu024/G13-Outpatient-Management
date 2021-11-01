@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/B6226404/project/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 )
 
 // POST /examinations

@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"github.com/pechkr2020/sa-project/entity"
 	"github.com/gin-gonic/gin"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 )
 
 // POST /patientrights
@@ -74,5 +74,5 @@ func UpdatePatientRight(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data":patientright})
+	c.JSON(http.StatusOK, gin.H{"data": patientright})
 }

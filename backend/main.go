@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/phu024/G13-Outpatient-Management/controller"
+	//"github.com/phu024/G13-Outpatient-Management/controller"
 	"github.com/phu024/G13-Outpatient-Management/entity"
 	//"github.com/phu024/G13-Outpatient-Management/middlewares"
 )
@@ -13,13 +13,11 @@ func main() {
 	r := gin.Default()
 	r.Use(CORSMiddleware())
 
-
-
 	// User Routes
 	//r.POST("/patients", controller.CreatePatients)
 
 	// Authentication Routes
-	r.POST("/login", controller.Login)
+	//r.POST("/login", controller.Login)
 
 	// Run the server
 	r.Run()

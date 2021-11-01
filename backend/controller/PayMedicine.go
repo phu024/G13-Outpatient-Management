@@ -3,7 +3,7 @@ package controller
 import (
 	"net/http"
 
-	"github.com/Chattapat/Pharmacy/entity"
+	"github.com/phu024/G13-Outpatient-Management/entity"
 
 	"github.com/gin-gonic/gin"
 
