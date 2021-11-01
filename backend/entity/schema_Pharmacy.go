@@ -42,14 +42,14 @@ type PayMedicine struct {
 	Medicine_Amount uint8
 
 	PatientID *uint
-	Patient   Patient `gorm: "references:id"`
+	Patient   Patient `gorm:"references:id"`
 
 	PharmacistID *uint
-	Pharmacist   Pharmacist `gorm: "references:id"`
+	Pharmacist   Pharmacist `gorm:"references:id"`
 
 	ReceiptID *uint
-	Receipt   Receipt `gorm: "references:id"`
+	Receipt   Receipt `gorm:"references:id"`
 
 	MedicineID *uint
-	Medicine   Medicine `gorm: "references:id"`
+	Medicine   Medicine `gorm:"references:id"`
 }
