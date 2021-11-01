@@ -69,4 +69,19 @@ func SetupDatabase() {
 		CashierID: 2,
 	}
 	db.Model(&Bill{}).Create(&Bi2)
+	
+	//Pharmacist Data
+	password, err := bcrypt.GenerateFromPassword([]byte("12345"), 14)
+	//Pharmacist Data
+	Ph1 := Pharmacist{
+
+		Name:     "ฉัตรพัฒน์",
+		Email:    "Chattapat@gmail.com",
+		Password: string(password),
+	}
+	db.Model(&Pharmacist{}).Create(&Ph1)
+
+	var Chattpat Pharmacist
+	db.Raw("SELECT * FROM pharmacists WHERE Email = ?", "Chattapat@gmail.com").Scan(&Chattpat)
+
 }
