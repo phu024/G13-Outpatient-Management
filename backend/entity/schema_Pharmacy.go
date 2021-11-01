@@ -9,8 +9,8 @@ import (
 type Patient struct {
 	gorm.Model
 	ID_Card   string `gorm:"uniqueIndex"`
-	FirstName string
-	LastName  string
+	Firstname string
+	Lastname  string
 	Birthdate time.Time
 	Age       uint8
 	// 1 คนไข้ มีได้หลาย บันทึกการจ่ายยา
