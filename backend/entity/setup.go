@@ -289,6 +289,9 @@ func SetupDatabase() {
 		Type: "Online paymemt",
 	}
 	db.Model(&Method{}).Create(&Me2)
+
+	//--------------------------------------------//
+	//รัชอินทร์
 	// Pharmacist (เภสัชกร)
 	Ph1 := Pharmacist{
 
@@ -297,8 +300,4 @@ func SetupDatabase() {
 		Password: string(password),
 	}
 	db.Model(&Pharmacist{}).Create(&Ph1)
-
-	//--------------------------------------------//
-	//รัชอินทร์
-
 }
