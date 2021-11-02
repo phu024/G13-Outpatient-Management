@@ -60,33 +60,42 @@ type Patient struct {
 	//GenderID ทำหน้าที่เป็น ForeignKey
 	GenderID *uint
 	Gender   Gender `gorm:"references:id"`
+
+	// 1 Patient มีได้หลาย Examination
+	Examinations []Examination `gorm:"foreignKey:PatientID"`
+	// 1 Patient ทำได้หลาย Appointment
+	Appointments []Appointment `gorm:"foreignKey:PatientID"`
+	// 1 Patient ทำได้หลาย PayMedicine
+	PayMedicine []PayMedicine `gorm:"foreignKey:PatientID"`
 }
 
 //ภูมิชัย
 type Doctor struct {
 	gorm.Model
-	Name        string
-	Email       string `gorm:"uniqueIndex"`
-	Password    string
-	WatchVideos []Examination `gorm:"foreignKey: DoctorID"`
+	Name         string
+	Email        string `gorm:"uniqueIndex"`
+	Password     string
+	Examinations []Examination `gorm:"foreignKey: DoctorID"`
+	Appointments []Appointment `gorm:"foreignKey: DoctorID"`
 }
 
 type Clinic struct {
 	gorm.Model
-	Name        string        `gorm:"uniqueIndex"`
-	WatchVideos []Examination `gorm:"foreignKey: ClinicID"`
+	Name         string        `gorm:"uniqueIndex"`
+	Examinations []Examination `gorm:"foreignKey: ClinicID"`
+	Appointments []Appointment `gorm:"foreignKey: ClinicID"`
 }
 
 type Disease struct {
 	gorm.Model
-	Name        string        `gorm:"uniqueIndex"`
-	WatchVideos []Examination `gorm:"foreignKey: DiseaseID"`
+	Name         string        `gorm:"uniqueIndex"`
+	Examinations []Examination `gorm:"foreignKey: DiseaseID"`
 }
 
 type Medicine struct {
 	gorm.Model
 	MedicineName string        `gorm:"uniqueIndex"`
-	WatchVideos  []Examination `gorm:"foreignKey: MedicineID"`
+	Examinations []Examination `gorm:"foreignKey: MedicineID"`
 }
 
 type Examination struct {
@@ -113,6 +122,8 @@ type Examination struct {
 	Disease   Disease `gorm:"references:id"`
 
 	// MedicineID ทำหน้าที่เป็น FK
+
+	Bills      []Bill `gorm:"foreignKey:ExaminationID"`
 	MedicineID *uint
 	Medicine   Medicine `gorm:"references:id"`
 }
@@ -177,22 +188,20 @@ type PatientRight struct {
 
 type Bill struct {
 	gorm.Model
-
-	ExaminationID *uint `gorm:"uniqueIndex"`
-
-	Examination Examination `gorm:"references:id"`
-
+	// ทำหน้าที่เป็น FK
+	ExaminationID *uint       `gorm:"uniqueIndex"`
+	Examination   Examination `gorm:"references:id"`
+	// ทำหน้าที่เป็น FK
 	PatientRightID *uint
-
-	PatientRight PatientRight `gorm:"references:id"`
+	PatientRight   PatientRight `gorm:"references:id"`
 
 	BillTime time.Time
-
-	Total uint
-
+	Total    uint
+	// ทำหน้าที่เป็น FK
 	CashierID *uint
+	Cashier   Cashier `gorm:"references:id"`
 
-	Cashier Cashier `gorm:"references:id"`
+	Receipt []Receipt `gorm:"foreignKey:BillID"`
 }
 
 //ภาคิน
