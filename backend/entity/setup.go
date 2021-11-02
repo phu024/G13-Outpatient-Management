@@ -206,6 +206,10 @@ func SetupDatabase() {
 		Name: "หู คอ จมูก",
 	}
 	db.Model(&Clinic{}).Create(&Otolaryngology)
+	Gynecologist := Clinic{
+		Name: "สูตินรีเวช",
+	}
+	db.Model(&Clinic{}).Create(&Gynecologist)
 
 	// Medicine Data (ข้อมูลยา)
 	Vitamin := Medicine{
