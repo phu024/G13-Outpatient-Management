@@ -175,7 +175,7 @@ type Cashier struct {
 
 	Bills []Bill `gorm:"foreignKey:CashierID"`
 
-	Reciepts []Bill `gorm:"foreignKey:CashierID"`
+	Receipts []Receipt `gorm:"foreignKey:CashierID"`
 }
 
 type PatientRight struct {
