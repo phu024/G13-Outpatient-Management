@@ -174,6 +174,8 @@ type Cashier struct {
 	Password string
 
 	Bills []Bill `gorm:"foreignKey:CashierID"`
+
+	Reciepts []Bill `gorm:"foreignKey:CashierID"`
 }
 
 type PatientRight struct {
@@ -201,7 +203,7 @@ type Bill struct {
 	CashierID *uint
 	Cashier   Cashier `gorm:"references:id"`
 
-	Receipt []Receipt `gorm:"foreignKey:BillID"`
+	Receipts []Receipt `gorm:"foreignKey:BillID"`
 }
 
 //ภาคิน
